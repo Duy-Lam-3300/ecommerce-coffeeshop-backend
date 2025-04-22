@@ -3,10 +3,23 @@ const app = express();
 const port = 3000;
 const path = require("path");
 
-app.get("/", (req, res) => {
-    res.send("hello word");
-})
+app.use("/", require(path.join(__dirname, "routes", "root.js")))
 
+const mongoose = require("mongoose");
+
+const dotenv = require("dotenv");
+dotenv.config();
+
+app.use(express.json());
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+
+}).then(() => console.log("Mongo connected")).catch(err => console.error("Mongo Error", err))
+
+//routes
+const coffeeRoutes = require(path.join(__dirname, "routes", "coffee", "index"));
+app.use("/coffee", coffeeRoutes);
 
 
 
@@ -21,7 +34,6 @@ app.all("{*splash}", (req, res) => {
     } else {
         res.type("txt").send("404 not found.")
     }
-
 })
 
 app.listen(port, () => {

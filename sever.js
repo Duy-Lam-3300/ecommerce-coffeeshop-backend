@@ -3,6 +3,9 @@ const app = express();
 const port = 3000;
 const path = require("path");
 
+app.use(express.json());
+app.use(express.urlencoded())
+
 app.use("/", require(path.join(__dirname, "routes", "root.js")))
 
 const mongoose = require("mongoose");
@@ -10,7 +13,6 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
-app.use(express.json());
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true

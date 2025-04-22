@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 
-const coffeSchema = new mongoose.Schema({
-    name: String,
-    image_uri: String,
-    category_id: String,
+const coffeeSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    size: String,
+    price: Number
 }, { timestamps: true })
 
 
-module.exports = mongoose.model("Coffe", coffeSchema);
+module.exports = mongoose.model("Coffee", coffeeSchema);

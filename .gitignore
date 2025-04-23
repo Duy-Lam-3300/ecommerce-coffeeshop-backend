@@ -1,2 +1,12 @@
 node_modules
 
+
+**/*.log
+.docker/
+*.tar
+*.tgz
+*.gz
+docker-compose.override.yml
+docker-compose.yml
+Dockerfile
+.dockerignore

@@ -4,7 +4,7 @@ const port = 3000;
 const path = require("path");
 
 
-const cors=require("cors");
+const cors = require("cors");
 app.use(cors());
 
 app.use(express.json());
@@ -23,9 +23,11 @@ mongoose.connect(process.env.MONGO_URL, {
 
 }).then(() => console.log("Mongo connected")).catch(err => console.error("Mongo Error", err))
 
+
+app.use("/public", express.static(path.join(__dirname, "public")));
 //routes
-const coffeeRoutes = require(path.join(__dirname, "routes", "coffee", "index"));
-app.use("/coffee", coffeeRoutes);
+const productRoutes = require(path.join(__dirname, "routes", "product", "index"));
+app.use("/product", productRoutes);
 
 
 

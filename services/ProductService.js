@@ -1,10 +1,10 @@
 
 const BaseService = require("./BaseService");
-const Coffee = require("../models/Coffee");
+const Product = require("../models/Product");
 
-class CoffeeService extends BaseService {
+class ProductService extends BaseService {
     constructor() {
-        super(Coffee);
+        super(Product);
     }
 
     async findByName(name) {
@@ -12,4 +12,4 @@ class CoffeeService extends BaseService {
     }
 }
 
-module.exports = new CoffeeService();
+module.exports = new ProductService();

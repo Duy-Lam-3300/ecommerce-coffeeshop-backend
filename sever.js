@@ -29,6 +29,9 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 const productRoutes = require(path.join(__dirname, "routes", "product", "index"));
 app.use("/product", productRoutes);
 
+const categoryRoutes = require(path.join(__dirname, "routes", "category", "index"));
+app.use("/category",categoryRoutes);
+
 
 
 //default

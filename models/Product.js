@@ -10,10 +10,11 @@ const productSchema = new mongoose.Schema({
     sizes: { type: [String], default: ["s", "m", "l", "xl"] },
     toppings: Array,
     image: { type: String, default: "../../public/img/default_img.jpg" },
-    category: {
-        type: [String],
-        default: ["other"]
-    },
+    categories: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
+        default: []
+    }],
     status: {
         type: Boolean,
         default: false

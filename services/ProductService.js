@@ -1,10 +1,10 @@
 
 const BaseService = require("./BaseService");
-const Product = require("../models/Product");
+const product = require("../models/Product");
 
 class ProductService extends BaseService {
     constructor() {
-        super(Product);
+        super(product);
     }
 
     async findByName(name) {

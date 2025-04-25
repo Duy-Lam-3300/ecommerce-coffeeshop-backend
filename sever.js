@@ -30,8 +30,10 @@ const productRoutes = require(path.join(__dirname, "routes", "product", "index")
 app.use("/product", productRoutes);
 
 const categoryRoutes = require(path.join(__dirname, "routes", "category", "index"));
-app.use("/category",categoryRoutes);
+app.use("/category", categoryRoutes);
 
+const userRoutes = require(path.join(__dirname, "routes", "user", "index.js"));
+app.use("/user",userRoutes)
 
 
 //default

@@ -1,20 +1,20 @@
-const product = require("../services/ProductService");
+const Product = require("../services/ProductService");
 
 const getAll = async (req, res) => {
-    const data = await product.findAll();
+    const data = await Product.findAll();
     res.json(data);
 }
 
 const getById = async (req, res) => {
-    const data = await product.findById(req.params.id);
+    const data = await Product.findById(req.params.id);
     res.json(data);
 }
 const create = async (req, res) => {
-    const newProduct = await product.create(req.body);
+    const newProduct = await Product.create(req.body);
     res.status(201).json(newProduct);
 }
 const update=async(req,res)=>{
-    const newProduct=await product.update(req.params.id,req.body);
+    const newProduct=await Product.update(req.params.id,req.body);
     res.status(201).json(newProduct)
 }
 

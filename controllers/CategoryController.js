@@ -1,24 +1,24 @@
-const category = require("../services/CategoryService");
+const Category = require("../services/CategoryService");
 
 
 const getAll = async (req, res) => {
-    const data = await category.findAll();
+    const data = await Category.findAll();
     res.json(data);
 }
 
 
 const getById = async (req, res) => {
-    const data = await category.findById(req.params.id);
+    const data = await Category.findById(req.params.id);
     res.json(data)
 }
 
 const create = async (req, res) => {
-    const newData = await category.create(req.body);
+    const newData = await Category.create(req.body);
     res.status(201).json(newData);
 }
 
 const update = async (req, res) => {
-    const newData = await category.update(req.params.id, req.body);
+    const newData = await Category.update(req.params.id, req.body);
     res.status(201).json(newData)
 }
 

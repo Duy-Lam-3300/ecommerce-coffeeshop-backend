@@ -8,4 +8,4 @@ class ReviewService extends BaseService {
     }
 }
 
-module.exports= new ReviewService();
+module.exports = new ReviewService();

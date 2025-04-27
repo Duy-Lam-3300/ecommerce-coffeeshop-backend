@@ -16,9 +16,9 @@ const create = async (req, res) => {
     res.status(201).json(newData);
 }
 
-const update= async(req,res)=>{
-    const newData=await Review.update(req.params.id,req.body);
+const update = async (req, res) => {
+    const newData = await Review.update(req.params.id, req.body);
     res.status(201).json(newData);
 }
 
-module.exports = {getAll,getById,create,update};
+module.exports = { getAll, getById, create, update };

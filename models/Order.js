@@ -11,8 +11,8 @@ const orderSchema = new mongoose.Schema({
         price: { type: Number, default: 0 },
     }],
     totalPrice: { type: Number, default: 0 },
-    status: { type: String, enum: ["pending", "preparing", "completed", "cancelled"], dafault: "pending" },
-    paymentMethod: { type: String, enum: ["cash", "momo", "vnpay", "card"], dafault: "cash" }
+    status: { type: String, enum: ["pending", "preparing", "completed", "cancelled"], default: "pending" },
+    paymentMethod: { type: String, enum: ["cash", "momo", "vnpay", "card"], default: "cash" }
 }, { timestamps: true })
 
 module.exports = mongoose.model("Order", orderSchema);

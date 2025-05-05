@@ -12,7 +12,7 @@ const getById = async (req, res) => {
 }
 
 const create = async (req, res) => {
-    const newData = await User.create(req.params.id);
+    const newData = await User.create(req.body);
     res.status(201).json(newData);
 }
 

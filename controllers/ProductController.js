@@ -22,7 +22,7 @@ const create = async (req, res) => {
 
             const fileStr = req.file.buffer.toString('base64');
             const uploadWithTimeOut = new Promise((resolve, reject) => {
-                const timeout = setTimeout(() => reject(new Error("Time out while uploading image!!!")), 10000);
+                const timeout = setTimeout(() => reject(new Error("Time out while uploading image!!!")), 5000);
                 cloudinary.uploader.upload(`data:${fileType};base64,${fileStr}`, { folder: "product" }, (error, result) => {
                     clearTimeout(timeout);
                     if (error) return reject(error);

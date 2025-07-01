@@ -1,9 +1,13 @@
+
 const express = require("express");
 const app = express();
-const port = 3000;
 const path = require("path");
 
+const dotenv = require("dotenv");
+dotenv.config();
 
+const port = process.env.PORT;
+const mongooseUri = process.env.MONGO_URL;
 const cors = require("cors");
 app.use(cors());
 
@@ -14,12 +18,9 @@ app.use("/", require(path.join(__dirname, "routes", "root.js")))
 
 const mongoose = require("mongoose");
 
-const dotenv = require("dotenv");
-dotenv.config();
-
-mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+mongoose.connect(mongooseUri, {
+    // useNewUrlParser: true, (mongose updated and unnecessary)
+    // useUnifiedTopology: true,  (mongose updated and unnecessary)
 
 }).then(() => console.log("Mongo connected")).catch(err => console.error("Mongo Error", err))
 
@@ -41,6 +42,9 @@ app.use("/review", reviewRoutes);
 const orderRoutes = require(path.join(__dirname, "routes", "order", "index"));
 app.use("/order", orderRoutes);
 
+const protectedRoutes = require(path.join(__dirname, "routes", "protected", "index"));
+app.use("/protected", protectedRoutes);
+
 
 //default
 app.all("{*splash}", (req, res) => {
@@ -54,6 +58,7 @@ app.all("{*splash}", (req, res) => {
         res.type("txt").send("404 not found.")
     }
 })
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

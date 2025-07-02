@@ -10,4 +10,4 @@ router.post("/", OrderController.create);
 router.put("/:id", OrderController.update);
 
 module.exports = router;
-module.exports.handler = serverless(router);
+

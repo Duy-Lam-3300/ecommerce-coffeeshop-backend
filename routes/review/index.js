@@ -10,3 +10,4 @@ router.post("/", ReviewController.create);
 router.put("/:id", ReviewController.update);
 
 module.exports = router;
+module.exports.handler = serverless(router);

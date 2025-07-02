@@ -9,3 +9,4 @@ router.get("/", verifyFirebaseToken, (req, res) => {
     });
 });
 module.exports = router;
+module.exports.handler = serverless(router);

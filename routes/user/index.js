@@ -9,3 +9,4 @@ router.post("/", UserController.create);
 router.put("/:id", UserController.update);
 
 module.exports = router;
+module.exports.handler = serverless(router);

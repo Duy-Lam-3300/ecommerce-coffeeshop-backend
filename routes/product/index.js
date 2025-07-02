@@ -10,3 +10,4 @@ router.post("/", upload.single("image"), ProductController.create);
 router.put("/:id", ProductController.update);
 
 module.exports = router;
+module.exports.handler = serverless(router);

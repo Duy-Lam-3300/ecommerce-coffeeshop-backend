@@ -16,7 +16,7 @@ app.use(express.urlencoded())
 
 app.use("/", require(path.join(__dirname, "routes", "root.js")))
 
-const mongoose = require("mongoose");
+const mongoose = require("mongoose");W
 
 mongoose.connect(mongooseUri, {
     // useNewUrlParser: true, (mongose updated and unnecessary)
@@ -59,9 +59,5 @@ app.all("{*splash}", (req, res) => {
     }
 })
 
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
 
 

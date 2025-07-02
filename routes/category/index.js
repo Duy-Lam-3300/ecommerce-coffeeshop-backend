@@ -9,3 +9,4 @@ router.post("/", CategoryController.create);
 router.put("/:id", CategoryController.update);
 
 module.exports = router;
+module.exports.handler = serverless(router);

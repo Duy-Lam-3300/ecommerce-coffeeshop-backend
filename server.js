@@ -6,7 +6,6 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const port = process.env.PORT;
 const mongooseUri = process.env.MONGO_URL;
 const cors = require("cors");
 app.use(cors());
@@ -16,7 +15,7 @@ app.use(express.urlencoded())
 
 app.use("/", require(path.join(__dirname, "routes", "root.js")))
 
-const mongoose = require("mongoose");W
+const mongoose = require("mongoose");
 
 mongoose.connect(mongooseUri, {
     // useNewUrlParser: true, (mongose updated and unnecessary)

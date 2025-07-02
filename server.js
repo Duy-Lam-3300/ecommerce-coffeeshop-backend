@@ -6,6 +6,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const port = process.env.PORT;
 const mongooseUri = process.env.MONGO_URL;
 const cors = require("cors");
 app.use(cors());
@@ -59,4 +60,9 @@ app.all("{*splash}", (req, res) => {
 })
 
 
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
 
+
+// app.listen(() => console.log(path.join(__dirname, "routes", "root.js")))

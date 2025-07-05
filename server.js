@@ -2,15 +2,23 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-
+const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const whitelistOrigin = ["http://localhost:3000", "https://coffela.vercel.app/"]
 const port = process.env.PORT;
 const mongooseUri = process.env.MONGO_URL;
-const cors = require("cors");
 app.use(cors({
-    origin: "http://localhost:3000", // ✅ allow your frontend origin
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        if (whitelistOrigin.includes(origin)) {
+            return callback(null, true);
+
+        } else {
+            return callback(new Error("Not allowrd by CORS"));
+        }
+    },// ✅ allow your frontend origin
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true // if you use cookies or auth headers
 }));

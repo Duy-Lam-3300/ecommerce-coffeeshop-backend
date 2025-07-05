@@ -6,7 +6,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const whitelistOrigin = ["http://localhost:3000", "https://coffela.vercel.app/"]
+const whitelistOrigin = ["http://localhost:3000", "https://coffela.vercel.app"]
 const port = process.env.PORT;
 const mongooseUri = process.env.MONGO_URL;
 app.use(cors({

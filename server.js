@@ -9,14 +9,19 @@ dotenv.config();
 const port = process.env.PORT;
 const mongooseUri = process.env.MONGO_URL;
 const cors = require("cors");
-app.use(cors());
-
+app.use(cors({
+    origin: "http://localhost:3000", // ✅ allow your frontend origin
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true // if you use cookies or auth headers
+}));
 app.use(express.json());
 app.use(express.urlencoded())
+const mongoose = require("mongoose");
+
+
 
 app.use("/", require(path.join(__dirname, "routes", "root.js")))
 
-const mongoose = require("mongoose");
 
 mongoose.connect(mongooseUri, {
     // useNewUrlParser: true, (mongose updated and unnecessary)
